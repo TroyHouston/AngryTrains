@@ -10,13 +10,12 @@ public class TrainMovement : MonoBehaviour
     public float minRot = -30;
     public float maxRot = 30;
 
-    private Camera cam;
+    public Camera cam;
     private Rigidbody rigid;
 
     // Use this for initialization
     void Start()
     {
-        cam = GetComponentInChildren<Camera>();
         rigid = GetComponent<Rigidbody>();
     }
 
