@@ -6,12 +6,12 @@ public class TrainMovement : MonoBehaviour
 
     public float turnSpeed = 100.0f;  // Units per second
     public float moveSpeed = 100.0f;  // Units per second
-    public float moveDampening = 0.05f;
-    public float minRot = -30;
-    public float maxRot = 30;
 
+    public GameObject indicator;
     public Camera cam;
     private Rigidbody rigid;
+
+    private Vector3 up = new Vector3(0, 1, 0);
 
     // Use this for initialization
     void Start()
@@ -34,22 +34,17 @@ public class TrainMovement : MonoBehaviour
             //Maybe don't make it try to go up or down as this will probably make the physics weird
             targetPos.y = transform.position.y;
             targetPos = Vector3.ClampMagnitude(targetPos, 5);
+            rigid.AddForce(targetPos * moveSpeed * Time.deltaTime);
 
-            Vector3 targetVel = Vector3.Lerp(rigid.velocity, targetPos, 3);
-            rigid.AddRelativeForce(targetVel * moveSpeed * Time.deltaTime);
+            indicator.transform.position = targetPos + transform.position;
+            transform.forward = Vector3.Slerp(transform.forward, rigid.velocity.normalized, 10 * Time.deltaTime);
 
-
-            //rigid.AddTorque(targetPos * Time.deltaTime, ForceMode.VelocityChange);
+            
         }
 
         //Should dampen movement even if you stop clicking
-        rigid.velocity *= 1f - moveDampening * Time.deltaTime;
+        //rigid.velocity *= 1f - moveDampening * Time.deltaTime;
 
         Quaternion curAngle = rigid.rotation;
-    }
-
-    public float clampAngle(float f)
-    {
-        return Mathf.Clamp(f, minRot, maxRot);
     }
 }
