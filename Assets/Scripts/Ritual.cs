@@ -62,7 +62,7 @@ public class Ritual {
 			var y = Mathf.Cos(angle) * (0.1f + radius);
 			var pos = new Vector3(x, 0, y) + ritualCentre;
 
-            var r = (RitualGoer)GameObject.Instantiate(ritualGoerObject, pos, Quaternion.identity);    
+            var r = GameObject.Instantiate(ritualGoerObject, pos, Quaternion.identity) as RitualGoer;    
             
             if (i % 2 == 0)
                 r.startUp = true;                                        
