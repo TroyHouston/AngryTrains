@@ -33,11 +33,11 @@ public class TrainMovement : MonoBehaviour
     {
         try {
             col.gameObject.GetComponent<RitualGoer>().Die(col);
-        }catch(System.NotImplementedException e)
+        }catch(System.NotImplementedException)
         {
 
         }
-        GameObject.Destroy(col.gameObject);
+        Destroy(col);
 
         score.villagerHit();
     }
@@ -65,10 +65,13 @@ public class TrainMovement : MonoBehaviour
 
             indicator.SetActive(true);
             indicator.transform.position = targetPos + transform.position;
-         
-            Vector3 pointing = Vector3.Lerp(rigid.rotation.eulerAngles,rigid.velocity.normalized,2*Time.deltaTime);
-            pointing.y = 0;
-            transform.forward = pointing;
+
+            if (rigid.velocity.magnitude > 0)
+            {
+                Vector3 pointing = Vector3.Lerp(rigid.rotation.eulerAngles, rigid.velocity.normalized, 2 * Time.deltaTime);
+                pointing.y = 0;
+                transform.forward = pointing;
+            }
         }
         else
         {

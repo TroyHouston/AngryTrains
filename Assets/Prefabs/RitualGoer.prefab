@@ -12,7 +12,7 @@ GameObject:
   - 136: {fileID: 13699568}
   - 23: {fileID: 2379424}
   - 114: {fileID: 11460194}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: RitualGoer
   m_TagString: RitualGoers
   m_Icon: {fileID: 0}
@@ -30,9 +30,9 @@ GameObject:
   - 33: {fileID: 3312032}
   - 136: {fileID: 13628414}
   - 23: {fileID: 2327438}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Arms
-  m_TagString: Untagged
+  m_TagString: RitualGoers
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,9 +48,9 @@ GameObject:
   - 33: {fileID: 3326352}
   - 135: {fileID: 13591462}
   - 23: {fileID: 2368198}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Nose
-  m_TagString: Untagged
+  m_TagString: RitualGoers
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66,9 +66,9 @@ GameObject:
   - 33: {fileID: 3308766}
   - 65: {fileID: 6579470}
   - 23: {fileID: 2357980}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: RitualGoers
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,9 +84,9 @@ GameObject:
   - 33: {fileID: 3316956}
   - 135: {fileID: 13580816}
   - 23: {fileID: 2319020}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: RitualGoers
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -356,7 +356,7 @@ SphereCollider:
   m_GameObject: {fileID: 179584}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -392,7 +392,7 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 102496}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2
@@ -427,11 +427,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_CollisionDetection
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
