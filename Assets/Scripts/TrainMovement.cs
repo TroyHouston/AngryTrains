@@ -24,9 +24,14 @@ public class TrainMovement : MonoBehaviour
     {
         if (col.gameObject.tag.Equals("RitualGoers"))
         {
-            //col.gameObject.GetComponent<RitualGoer>().die(col );
-
+            CollideWithVillager(col);
         }
+    }
+
+    public void CollideWithVillager(Collision col)
+    {
+        col.gameObject.GetComponent<RitualGoer>().Die(col.impulse);
+        GameObject.Destroy(col.gameObject);
     }
 
     void Update()
