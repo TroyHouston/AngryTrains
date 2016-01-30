@@ -67,7 +67,9 @@ public class Ritual {
             if (i % 2 == 0)
                 r.startUp = true;                                        
             
-            currentRitualGoers.Add(r);    
+            currentRitualGoers.Add(r);  
+            r.transform.LookAt(ritualCentre);  
+            r.transform.Rotate(0,-90,0);
         }       
         prevRingRadius = radius;
     }     
