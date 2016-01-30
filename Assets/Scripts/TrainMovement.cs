@@ -24,7 +24,7 @@ public class TrainMovement : MonoBehaviour
     {
         if (col.gameObject.tag.Equals("RitualGoers"))
         {
-            //col.gameObject.GetComponent<RitualGoer>().die(col.impulse);
+            //col.gameObject.GetComponent<RitualGoer>().die(col );
 
         }
     }
@@ -53,7 +53,7 @@ public class TrainMovement : MonoBehaviour
             indicator.SetActive(true);
             indicator.transform.position = targetPos + transform.position;
          
-            Vector3 pointing = rigid.velocity.normalized;
+            Vector3 pointing = Vector3.Lerp(rigid.rotation.eulerAngles,rigid.velocity.normalized,2*Time.deltaTime);
             pointing.y = 0;
             transform.forward = pointing;
         }
@@ -61,21 +61,5 @@ public class TrainMovement : MonoBehaviour
         {
             indicator.SetActive(false);
         }
-
-        if (Input.GetMouseButton(1)&&testBool==false)
-        {
-            //addCarriage();
-            testBool = true;
-        }
     }
-
-    /*public void addCarriage()
-    {
-        GameObject carriage = Instantiate(Resources.Load("Carriage")) as GameObject;
-        CarriageFollow cf = carriage.GetComponent<CarriageFollow>();
-        carriage.transform.rotation = transform.rotation;
-        carriage.transform.position = transform.position + carriage.transform.forward*-6 + Vector3.up;
-        cf.carriageFront = gameObject;
-        cf.connectorFront = backConnector;
-    }*/
 }
