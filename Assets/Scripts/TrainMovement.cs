@@ -36,10 +36,13 @@ public class TrainMovement : MonoBehaviour
             targetPos = Vector3.ClampMagnitude(targetPos, 5);
             rigid.AddForce(targetPos * moveSpeed * Time.deltaTime);
 
+            indicator.SetActive(true);
             indicator.transform.position = targetPos + transform.position;
             transform.forward = Vector3.Slerp(transform.forward, rigid.velocity.normalized, 10 * Time.deltaTime);
-
-            
+        }
+        else
+        {
+            indicator.SetActive(false);
         }
 
         //Should dampen movement even if you stop clicking
