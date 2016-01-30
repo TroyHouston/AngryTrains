@@ -13,6 +13,9 @@ public class Villager : RitualGoer {
     public Vector3 startPosition;
     public Vector3 endPosition;
     private bool up;
+    private bool objectExplode = false;
+    private float explosionRadius = 5.0f;    //The starting radius of the explosion
+    private float explosionPower = 5.0f;    //The power of the explosion
     
 	// Use this for initialization
 	void Start () {
@@ -26,9 +29,15 @@ public class Villager : RitualGoer {
 		}
 			
 	}
+    
+    void Update () {
+        if(Input.GetKey(KeyCode.Space)) {
+            Die(null);
+        }
+    }
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         if (animStarted && up) {                 
             //We want percentage = 0.0 when Time.time = _timeStartedLerping
             //and percentage = 1.0 when Time.time = _timeStartedLerping + timeTakenDuringLerp
@@ -69,6 +78,27 @@ public class Villager : RitualGoer {
 				startTime = Time.time;
             } 
         }
+        
+        if (objectExplode == true) {
+     
+            // Apply an explosion force to all nearby rigidbodies
+            if (explosionRadius < 18) {
+                explosionRadius += 0.5f;
+                 
+                var explosionPos = transform.position;
+                Collider[] colliders = Physics.OverlapSphere (explosionPos, explosionRadius);
+ 
+                foreach (Collider hit in colliders) {
+                    if (!hit)
+                        continue;
+ 
+                    if (hit.GetComponent<Rigidbody>()) {
+                        hit.GetComponent<Rigidbody>().AddExplosionForce(explosionPower, explosionPos, explosionRadius, 3.0f);
+                    }
+                }
+            }
+            Destroy(gameObject);
+        } 
 	}
     
     public override void StartAnimation (float rngStartTime) {
@@ -89,8 +119,9 @@ public class Villager : RitualGoer {
 		animStarted = true;
     }
 
-    public override void Die(Vector3 impulse)
-    {
-        throw new NotImplementedException();
-    }
+    public override void Die(Collision collision)
+    {    
+        var remains = Instantiate(Resources.Load("BrokenVillager"), transform.position, transform.rotation) as GameObject;
+        objectExplode = true;        
+    }   
 }
