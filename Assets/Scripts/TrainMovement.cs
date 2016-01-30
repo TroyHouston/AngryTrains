@@ -9,9 +9,10 @@ public class TrainMovement : MonoBehaviour
 
     public GameObject indicator;
     public Camera cam;
+    //public GameObject backConnector;
     private Rigidbody rigid;
 
-    private Vector3 up = new Vector3(0, 1, 0);
+    private bool testBool = false;
 
     // Use this for initialization
     void Start()
@@ -19,11 +20,24 @@ public class TrainMovement : MonoBehaviour
         rigid = GetComponent<Rigidbody>();
     }
 
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.tag.Equals("RitualGoers"))
+        {
+            //col.gameObject.GetComponent<RitualGoer>().die(col.impulse);
+
+        }
+    }
+
     void Update()
     {
         //Left click
         if (Input.GetMouseButton(0))
         {
+            Vector3 curPos = transform.position;
+            curPos.y = 0.5f;
+            transform.position = curPos;
+
             //Find out what the mouse is pointing at
             //TODO make it so it only raycasts at the ground
             //TODO ignore 0,0,0 case if you click on the sky
@@ -38,16 +52,30 @@ public class TrainMovement : MonoBehaviour
 
             indicator.SetActive(true);
             indicator.transform.position = targetPos + transform.position;
-            transform.forward = Vector3.Slerp(transform.forward, rigid.velocity.normalized, 10 * Time.deltaTime);
+         
+            Vector3 pointing = rigid.velocity.normalized;
+            pointing.y = 0;
+            transform.forward = pointing;
         }
         else
         {
             indicator.SetActive(false);
         }
 
-        //Should dampen movement even if you stop clicking
-        //rigid.velocity *= 1f - moveDampening * Time.deltaTime;
-
-        Quaternion curAngle = rigid.rotation;
+        if (Input.GetMouseButton(1)&&testBool==false)
+        {
+            //addCarriage();
+            testBool = true;
+        }
     }
+
+    /*public void addCarriage()
+    {
+        GameObject carriage = Instantiate(Resources.Load("Carriage")) as GameObject;
+        CarriageFollow cf = carriage.GetComponent<CarriageFollow>();
+        carriage.transform.rotation = transform.rotation;
+        carriage.transform.position = transform.position + carriage.transform.forward*-6 + Vector3.up;
+        cf.carriageFront = gameObject;
+        cf.connectorFront = backConnector;
+    }*/
 }
