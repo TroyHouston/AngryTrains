@@ -11,7 +11,7 @@ GameObject:
   - 33: {fileID: 3396580}
   - 136: {fileID: 13699568}
   - 23: {fileID: 2379424}
-  - 114: {fileID: 11464326}
+  - 114: {fileID: 11460194}
   m_Layer: 0
   m_Name: RitualGoer
   m_TagString: RitualGoers
@@ -128,7 +128,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 102496}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &11464326
+--- !u!114 &11460194
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -136,10 +136,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 102496}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5a42ac71833ad24ebf63ecd0156db59, type: 3}
+  m_Script: {fileID: 11500000, guid: 5a622b33e020f4b40a52c5c1574cc49c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startUp: 1
+  startUp: 0
   moveDistance: 1
 --- !u!135 &13580816
 SphereCollider:
@@ -184,6 +184,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_TagString
       value: RitualGoers
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Name
+      value: Villager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

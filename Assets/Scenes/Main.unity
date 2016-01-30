@@ -231,9 +231,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ritualCount: 10
   mapSize: 60
-  maxPeopleSize: 15
-  maxRingCount: 1
-  ritualGoerObject: {fileID: 11464326, guid: 6c9d152deed994841a4dccf6f673fd9c, type: 2}
+  borderSize: 5
+  maxPeopleSize: 50
+  minPeopleSize: 7
+  maxRingCount: 4
+  ritualGoerObject: {fileID: 11460194, guid: 6c9d152deed994841a4dccf6f673fd9c, type: 2}
 --- !u!4 &1062472787
 Transform:
   m_ObjectHideFlags: 0
