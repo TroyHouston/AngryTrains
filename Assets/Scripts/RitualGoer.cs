@@ -29,4 +29,9 @@ public class RitualGoer : MonoBehaviour {
                    
         this.transform.Translate(0,moveDistance,0);
     }
+    
+    // TODO Ryan Train Interaction
+    void Die(Vector3 impulse) {
+        
+    }
 }
