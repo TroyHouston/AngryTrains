@@ -1,37 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class RitualGoer : MonoBehaviour {
-    
-    public bool startUp = true;
-    public float moveDistance = 1.0f;    
-    private float height;
-    
-	// Use this for initialization
-	void Start () {
-        height = this.transform.localScale.y;
-        if(!startUp)
-            moveDistance = -moveDistance;
-        
-        if (startUp)
-            this.transform.Translate(0, moveDistance, 0);   
-        
-	   InvokeRepeating("AnimateRitual", 0, 0.5f);
-	}
-	
-	// Update is called once per frame
-	void Update () {
+public abstract class RitualGoer : MonoBehaviour {
 
-	}
+    public bool startUp;
     
-    void AnimateRitual () {
-        moveDistance = -moveDistance;
-                   
-        this.transform.Translate(0,moveDistance,0);
-    }
+    public virtual void StartAnimation (float rngStartTime) {}
+
+    protected virtual void AnimateRitual () {}
     
     // TODO Ryan Train Interaction
-    void Die(Vector3 impulse) {
-        
-    }
+    public virtual void Die (Vector3 impulse) {}
 }
