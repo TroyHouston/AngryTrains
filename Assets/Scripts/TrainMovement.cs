@@ -9,6 +9,7 @@ public class TrainMovement : MonoBehaviour
 
     public GameObject indicator;
     public Camera cam;
+    public Score score;
     //public GameObject backConnector;
     private Rigidbody rigid;
 
@@ -20,7 +21,7 @@ public class TrainMovement : MonoBehaviour
         rigid = GetComponent<Rigidbody>();
     }
 
-    void OnCollisionEnter(Collision col)
+    void OnTriggerEnter(Collision col)
     {
         if (col.gameObject.tag.Equals("RitualGoers"))
         {
@@ -30,8 +31,15 @@ public class TrainMovement : MonoBehaviour
 
     public void CollideWithVillager(Collision col)
     {
-        col.gameObject.GetComponent<RitualGoer>().Die(col.impulse);
+        try {
+            col.gameObject.GetComponent<RitualGoer>().Die(col.impulse);
+        }catch(System.NotImplementedException e)
+        {
+
+        }
         GameObject.Destroy(col.gameObject);
+
+        score.villagerHit();
     }
 
     void Update()
