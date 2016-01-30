@@ -119,7 +119,7 @@ public class Villager : RitualGoer {
 		animStarted = true;
     }
 
-    public override void Die(Collision collision)
+    public override void Die(Collider collider)
     {    
         var remains = Instantiate(Resources.Load("BrokenVillager"), transform.position, transform.rotation) as GameObject;
         objectExplode = true;        

@@ -21,18 +21,18 @@ public class TrainMovement : MonoBehaviour
         rigid = GetComponent<Rigidbody>();
     }
 
-    void OnTriggerEnter(Collision col)
+    void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.tag.Equals("RitualGoers"))
         {
-            CollideWithVillager(col);
+            HitVillager(col);
         }
     }
 
-    public void CollideWithVillager(Collision col)
+    public void HitVillager(Collider col)
     {
         try {
-            col.gameObject.GetComponent<RitualGoer>().Die(col.impulse);
+            col.gameObject.GetComponent<RitualGoer>().Die(col);
         }catch(System.NotImplementedException e)
         {
 

@@ -614,7 +614,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 462370, guid: 1df36c65e1fb97c4f976132ca00228db, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.56
+      value: 1.28
       objectReference: {fileID: 0}
     - target: {fileID: 462370, guid: 1df36c65e1fb97c4f976132ca00228db, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1114,6 +1114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: {x: -10, y: 20, z: 0}
   following: {fileID: 1556624326}
+  firstPersonMode: 0
 --- !u!1 &1645272729
 GameObject:
   m_ObjectHideFlags: 0

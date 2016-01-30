@@ -10,5 +10,5 @@ public abstract class RitualGoer : MonoBehaviour {
     protected virtual void AnimateRitual () {}
     
     // TODO Ryan Train Interaction
-    public virtual void Die (Collision collision) {}
+    public virtual void Die (Collider col) {}
 }
