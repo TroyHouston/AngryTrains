@@ -16,9 +16,15 @@ public class Villager : RitualGoer {
     private bool objectExplode = false;
     private float explosionRadius = 0.3f;    //The starting radius of the explosion
 	private GameObject remains;
+	public AudioClip deathSound;
     
 	// Use this for initialization
 	void Start () {
+
+		// 2 -- 15
+		var rngNum = UnityEngine.Random.Range(2,15);
+		deathSound = (AudioClip) Resources.Load("villagerhit" + rngNum);
+
         height = this.transform.localScale.y;  
 
 		if (startUp) {
@@ -110,6 +116,7 @@ public class Villager : RitualGoer {
 
     public override void Die(Collider collider)
     {    
+		AudioSource.PlayClipAtPoint(deathSound, new Vector3(5, 1, 2));
         remains = Instantiate(Resources.Load("BrokenVillager"), transform.position, transform.rotation) as GameObject;
         objectExplode = true;        
     }   
