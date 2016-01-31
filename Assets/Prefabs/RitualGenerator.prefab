@@ -23,7 +23,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 114522}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 250, y: 0, z: 250}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -39,12 +39,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fed63ff38ae577478952e1fd998206c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ritualCount: 10
-  mapSize: 60
-  borderSize: 5
-  maxPeopleSize: 50
-  minPeopleSize: 7
-  maxRingCount: 4
+  ritualCount: 20
+  mapSize: 500
+  borderSize: 30
+  maxPeopleSize: 30
+  minPeopleSize: 9
+  maxRingCount: 5
   ritualGoerObject: {fileID: 11460194, guid: 6c9d152deed994841a4dccf6f673fd9c, type: 2}
 --- !u!1001 &100100000
 Prefab:

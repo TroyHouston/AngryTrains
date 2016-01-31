@@ -74,8 +74,8 @@ public class RitualGenerator : MonoBehaviour {
     }    
     
     Vector3 CreateRNGCentre() {       
-        var x = Random.Range(-placableMapSize/2, placableMapSize/2);
-		var z = Random.Range(-placableMapSize/2, placableMapSize/2);
+		var x = Random.Range(transform.position.x + -placableMapSize/2,transform.position.z +  placableMapSize/2);
+		var z = Random.Range(transform.position.x + -placableMapSize/2,transform.position.z +  placableMapSize/2);
         return new Vector3(x, 0, z);
     } 
      
