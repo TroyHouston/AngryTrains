@@ -37,8 +37,15 @@ public class RitualGenerator : MonoBehaviour {
         for (var i = 0; i < ritualCount; i++) {
             // add to array
             currentRituals.Add(GenerateRitualWithRNGValues());
+            StartCoroutine(startChanting((Ritual)currentRituals[i]));
         }
     }
+    
+	IEnumerator startChanting(Ritual r)
+	{
+        yield return new WaitForSeconds(Random.value);
+        r.startChant();        
+	}
 
     // TODO FUNCTION Randomize ritual central position & size: (TODO Ring Count)
     // Centre not near edge.

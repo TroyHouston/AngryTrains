@@ -14,8 +14,8 @@ public class Villager : RitualGoer {
     public Vector3 endPosition;
     private bool up;
     private bool objectExplode = false;
-    private float explosionRadius = 5.0f;    //The starting radius of the explosion
-    private float explosionPower = 5.0f;    //The power of the explosion
+    private float explosionRadius = 0.3f;    //The starting radius of the explosion
+	private GameObject remains;
     
 	// Use this for initialization
 	void Start () {
@@ -80,25 +80,14 @@ public class Villager : RitualGoer {
         }
         
         if (objectExplode == true) {
-     
-            // Apply an explosion force to all nearby rigidbodies
-            if (explosionRadius < 18) {
-                explosionRadius += 0.5f;
-                 
-                var explosionPos = transform.position;
-                Collider[] colliders = Physics.OverlapSphere (explosionPos, explosionRadius);
- 
-                foreach (Collider hit in colliders) {
-                    if (!hit)
-                        continue;
- 
-                    if (hit.GetComponent<Rigidbody>()) {
-                        hit.GetComponent<Rigidbody>().AddExplosionForce(explosionPower, explosionPos, explosionRadius, 3.0f);
-                    }
-                }
+            Destroy(gameObject); 
+            foreach (Rigidbody hit in remains.GetComponentsInChildren<Rigidbody>()) {
+                var h = UnityEngine.Random.Range(-300, 300);  
+                var v = UnityEngine.Random.Range(50, 100);            
+                hit.AddForce(new Vector3(h,v,h), ForceMode.Impulse);   
             }
-            Destroy(gameObject);
-        } 
+        }
+         
 	}
     
     public override void StartAnimation (float rngStartTime) {
@@ -121,7 +110,7 @@ public class Villager : RitualGoer {
 
     public override void Die(Collider collider)
     {    
-        var remains = Instantiate(Resources.Load("BrokenVillager"), transform.position, transform.rotation) as GameObject;
+        remains = Instantiate(Resources.Load("BrokenVillager"), transform.position, transform.rotation) as GameObject;
         objectExplode = true;        
     }   
 }
