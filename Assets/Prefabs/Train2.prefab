@@ -123,7 +123,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 462370}
   m_Layer: 0
-  m_Name: Train
+  m_Name: Train2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -698,6 +698,7 @@ MonoBehaviour:
   moveSpeed: 1225.5
   indicator: {fileID: 167314}
   cam: {fileID: 0}
+  score: {fileID: 0}
 --- !u!135 &13579704
 SphereCollider:
   m_ObjectHideFlags: 1
