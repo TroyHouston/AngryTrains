@@ -15,6 +15,6 @@ public class StartMenu : MonoBehaviour {
 	}
 
 	public void onStartGame(){
-		SceneManager.LoadScene ("3DEnvironment");
+		SceneManager.LoadScene ("3DEnvironment_ver_2");
 	}
 }
