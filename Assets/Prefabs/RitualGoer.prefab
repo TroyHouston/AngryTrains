@@ -13,7 +13,7 @@ GameObject:
   - 23: {fileID: 2379424}
   - 114: {fileID: 11460194}
   m_Layer: 13
-  m_Name: RitualGoerOld
+  m_Name: RitualGoer
   m_TagString: RitualGoers
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

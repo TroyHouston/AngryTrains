@@ -39,7 +39,13 @@ public class Ritual {
                 ringCount = ri - 1;
                 break;
             }           
-        }                       
+        }  
+        
+        
+    }
+    
+    public void startChant() {
+        GameObject.Instantiate(Resources.Load("Chanting"), ritualCentre, Quaternion.identity);
     }
     
     void CreateRing(int size, float currentRing) {
