@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 475028}
   - 114: {fileID: 11498278}
+  - 82: {fileID: 8299122}
   m_Layer: 0
   m_Name: RitualGenerator
   m_TagString: Untagged
@@ -28,6 +29,80 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!82 &8299122
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 114522}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 8e5b1fdc1bf8e4c42b3a5ed47153558e, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.01
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 150
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &11498278
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -39,13 +114,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fed63ff38ae577478952e1fd998206c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ritualCount: 20
+  ritualCount: 35
   mapSize: 500
   borderSize: 30
   maxPeopleSize: 30
   minPeopleSize: 9
   maxRingCount: 5
-  ritualGoerObject: {fileID: 11460194, guid: 6c9d152deed994841a4dccf6f673fd9c, type: 2}
+  ritualGoerObject: {fileID: 11468052, guid: f3de9d2f0f0149748b2b994a70d82765, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
