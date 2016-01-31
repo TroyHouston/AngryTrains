@@ -80,7 +80,6 @@ public class TrainMovement : MonoBehaviour
             }
             targetPos = Vector3.ClampMagnitude(targetPos, 5);
             targetPos.y = 0.5f;
-            Debug.Log(targetPos);
             rigid.AddForce(targetPos * moveSpeed * Time.deltaTime);
 
             indicator.SetActive(true);
