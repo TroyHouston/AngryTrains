@@ -26241,7 +26241,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11498278, guid: 82be5057805f4b54bb8165f225b46ffe, type: 2}
       propertyPath: ritualCount
-      value: 20
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 11498278, guid: 82be5057805f4b54bb8165f225b46ffe, type: 2}
       propertyPath: ritualGoerObject

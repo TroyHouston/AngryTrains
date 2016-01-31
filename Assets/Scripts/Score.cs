@@ -17,7 +17,7 @@ public class Score : MonoBehaviour {
 
 	public void villagerHit () {
 		scoreValue += 15;
-		//scoreText.text = scoreString + scoreValue;
+		scoreText.text = scoreString + scoreValue;
 	}
 
 	public void villageWipeout () {
